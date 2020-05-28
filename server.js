@@ -50,20 +50,42 @@ app.post('/api/notes', (req, res) => {
     }
 });
 
-// ADD DELETE NOTE HERE
+app.delete('/api/notes/:id', (req, res) => {
+    try {
+        // read noteData from json file
+        noteData = fs.readFileSync('./db/db.json', 'utf8');
+        // parse data to get array of objects
+        noteData = JSON.parse(noteData);
+        // delete old note from array of note objects
+        noteData = noteData.filter(function(note) {
+            return note.id != req.params.id;
+        });
+        noteData = JSON.stringify(noteData);
+        //write new notes to the file
+        fs.writeFile('./db/db.json', noteData, 'utf8',
+        function(err) {
+            if (err) throw err;
+        });
+
+        // parse data to array of objects and send 
+        res.send(JSON.parse(noteData));
+        } catch (err) {
+            throw err;
+        }
+});
+
+// GET NOTE TO SAVE AND APPEAR IN LEFT HAND COLUMN AUTOMATICALLY
 
 // HTM ROUTES
-
-// FIGURE OUT WHY THE ORDER OF THESE MATTER!!!
-
-// add route "*" to return index.html file (homepage)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
-});
 
 // add route /notes to return notes.html file when get started is clicked
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
+});
+
+// add route "*" to return index.html file (homepage)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 
