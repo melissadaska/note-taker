@@ -7,7 +7,7 @@ const fs = require('fs');
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static('public'));
 
 // initialize noteData
 var noteData = [];
@@ -45,6 +45,9 @@ app.post('/api/notes', (req, res) => {
         fs.writeFile('./db/db.json', noteData, 'utf8', (err) => {
             if (err) throw err;
         });
+        // change back to array and sent back to client
+        res.json(JSON.parse(noteData));
+
     } catch (err) {
         throw err;
     }
@@ -74,18 +77,16 @@ app.delete('/api/notes/:id', (req, res) => {
         }
 });
 
-// GET NOTE TO SAVE AND APPEAR IN LEFT HAND COLUMN AUTOMATICALLY
-
 // HTM ROUTES
 
 // add route /notes to return notes.html file when get started is clicked
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/notes.html"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 // add route "*" to return index.html file (homepage)
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 
