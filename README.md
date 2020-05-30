@@ -19,10 +19,10 @@ I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 
 Here is a screenshot of the home page: 
-![Screenshot of home page](.public/assets/images/homepage.png)
+![Screenshot of home page](./public/assets/images/homepage.png)
 
 Here is a screen displaying the notes after the user adds each note:
-![Screenshot of Notes](.public/assets/images/notespage.png)
+![Screenshot of Notes](./public/assets/images/notespage.png)
 
 
 ## Questions
