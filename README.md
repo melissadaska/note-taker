@@ -1,6 +1,6 @@
 # Note Taker
 
-Follow this link to the deployed application on Heroku! [Melissa D Note Taker Heroku](https://melissadaskanotetaker.herokuapp.com/)
+Follow this link to the deployed application on Heroku! [Click to take notes!](https://melissadaskanotetaker.herokuapp.com/)
 
 ## Table of Contents
   
