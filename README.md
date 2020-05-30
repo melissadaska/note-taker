@@ -14,9 +14,9 @@ This application will use an Express.js back end and save and retrieve note data
 
 ## Description
 
-AS A small business owner
-I WANT to be able to write and save notes
-SO THAT I can organize my thoughts and keep track of tasks I need to complete.
+AS A small business owner\s\s
+I WANT to be able to write and save notes\s\s
+SO THAT I can organize my thoughts and keep track of tasks I need to complete.\s\s
 
 Here is a screenshot of the home page: 
 ![Screenshot of home page](./public/assets/images/homepage.png)
